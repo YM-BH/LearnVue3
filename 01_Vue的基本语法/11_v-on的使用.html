@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>当前计数：{{counter}}</h2>
+    <button @click="increment">+1</button>
+    <!-- 两个事件同时使用 -->
+    <div class="box" @mousemove="mousemove" @click="divClick">鼠标移动可点击</div>
+    <!-- 默认传递 event 参数 -->
+    <div class="box" @click="defaultEvent">默认event</div>
+    <!-- 传递自定义参数 -->
+    <div class="box" @click="multiParams(arg1, arg2)">传递多个参数</div>
+    <!-- 同时传递 event 和 自定义参数 -->
+    <div class="box" @click="bothParams(arg1, arg2, $event)">传递参数和event</div>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          counter: 0,
+          arg1: "abc",
+          arg2: "cba"
+        }
+      },
+      methods: {
+        increment() {
+          this.counter++
+        },
+        mousemove() {
+          console.log("鼠标移动");
+        },
+        divClick() {
+          console.log("点击了")
+        },
+        defaultEvent(event) {
+          console.log(event)
+        },
+        multiParams(arg1, arg2) {
+          console.log(arg1, arg2)
+        },
+        bothParams(arg1, arg2, event) {
+          console.log(arg1, arg2, event);
+
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

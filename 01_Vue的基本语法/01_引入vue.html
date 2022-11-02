@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h2>{{title}}</h2>
+    <h2>球员列表</h2>
+    <ul>
+      <li v-for="item in players">{{item}}</li>
+    </ul>
+    <h2>计数器</h2>
+    <h3>当前计数：{{counter}}</h3>
+    <button @click="increment">+1</button>
+    <button @click="decrement">-1</button>
+  </div>
+
+  <!-- 本地引入 -->
+  <script src="./lib/vue.js"></script>
+  <!-- CND引入 -->
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+
+  <script>
+    const app = Vue.createApp({
+      // template: `
+      //   <h2>{{title}}</h2>
+      //   <h2>球员列表</h2>
+      //   <ul>
+      //     <li v-for="item in players">{{item}}</li>
+      //   </ul>
+      //   <h2>计数器</h2>
+      //   <h3>当前计数：{{counter}}</h3>
+      //   <button @click="increment">+1</button>
+      //   <button @click="decrement">-1</button>
+      // `,
+      data: function () {
+        return {
+          title: "Hello Hello",
+          players: ["姚明", "易建联", "刘玉栋", "胡雪峰"],
+          counter: 0
+        }
+      },
+      methods: {
+        increment() {
+          this.counter++
+        },
+        decrement() {
+          this.counter--
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+
+</body>
+
+</html>

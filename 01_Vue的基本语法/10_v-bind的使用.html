@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+
+    <!-- 绑定 src -->
+    <img v-bind:src="imgUrl" alt="">
+    <!-- 绑定 href -->
+    <a :href="address">百度一下</a>
+
+    <!-- 动态绑定 class -->
+    <div>
+      <!-- 对象语法 -->
+      <button 
+        class="box" 
+        :class="{ active: isActive, title: true }" 
+        @click="changeColor">切换颜色
+      </button>
+    </div>
+
+    <!-- 绑定 style -->
+    <h2 :style="{color: 'red', fontSize: size}">绑定style，对象语法</h2>
+
+    <!-- 绑定对象 -->
+    <h2 :="infos">绑定对象</h2>
+
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          imgUrl: "http://p1.music.126.net/y0P2QCRY4-C3qYWifMp5kA==/109951168016199398.jpg",
+          address: "https://www.baidu.com",
+          isActive: false,
+          size: "40px",
+          infos: {
+            name: "Li",
+            age: 20,
+            height: 1.23
+          }
+        }
+      },
+      methods: {
+        changeColor() {
+          this.isActive = !this.isActive
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
