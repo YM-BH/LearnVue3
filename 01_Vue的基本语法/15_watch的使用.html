@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+      <h2>{{message}}</h2>
+      <h2>{{info.name}}</h2>
+      <button @click="changeContent">修改内容</button>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: "巴啦啦把卡",
+          info: {name: "James", age: 38}
+        }
+      },
+      methods: {
+        changeContent() {
+          this.message = "时间节点"
+          // this.info = {name: "Curry"}
+          this.info.name = "Klay"
+        }
+      },
+
+      watch: {
+        message(newValue, oldValue) {
+          console.log("监听到message发生改变", newValue, oldValue)
+        },
+        // info(newValue, oldValue) {
+        //   console.log("监听到info发生了改变", newValue, oldValue)
+        // }
+
+        // 深度监听
+        info: {
+          handler(newValue, oldValue) {
+            console.log("监听到info发生了改变", Vue.toRaw(newValue), oldValue)
+          },
+          deep: true,
+          // 立即监听
+          immediate: true
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
