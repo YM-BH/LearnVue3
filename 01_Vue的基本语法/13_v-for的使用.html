@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 遍历字符串数组 -->
+    <h2>球员列表 - 遍历字符串数组</h2>
+    <ul>
+      <li v-for="(player, index) in players">{{player}} - {{index}}</li>
+    </ul>
+
+    <!-- 遍历对象数组 -->
+    <h2>书籍列表-遍历对象数组</h2>
+    <div v-for="book in books">
+      <h3>名称：{{book.name}}</h3>
+      <h4>价格：{{book.price}}</h4>
+    </div>
+
+    <h2>遍历对象</h2>
+    <ul>
+      <li v-for="(value, key, index) in infos">{{value}} - {{key}} - {{index}}</li>
+    </ul>
+
+    <h2>遍历字符串</h2>
+    <ul>
+      <li v-for="c in message">{{c}}</li>
+    </ul>
+
+    <h2>遍历数字</h2>
+    <ul>
+      <li v-for="n in 20">{{n}}</li>
+    </ul>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: "Hello",
+          players: ["姚明", "詹姆斯", "库里", "科比", "奥尼尔"],
+          books: [
+            {id: 666, name: "Flutter", price: 98.3},
+            {id: 777, name: "Objective-C", price: 34.5},
+            {id: 888, name: "Vue3", price: 33.3},
+            {id: 999, name: "React18", price: 398.3},
+          ],
+          infos: {name: "Kobe", age: 20, height: 1.98}
+        }
+      }
+    })
+
+    app.mount("#app")
+
+  </script>
+</body>
+</html>
