@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>v-model 修饰符 .lazy</h2>
+    <!-- 失去焦点的时候才赋值 -->
+    <input type="text" v-model.lazy="message">
+    <h3>message: {{message}}</h3>
+    <hr>
+    <h2>v-model 修饰符 .number</h2>
+    <!-- 数字类型 -->
+    <input type="text" v-model.number="counter">
+    <h3>{{counter}} - {{typeof counter}}</h3>
+
+    <h2>v-model 修饰符 .trim</h2>
+    <!-- 取出前后空格 -->
+    <input type="text" v-model.trim="content">
+    <h3>content: {{content}}</h3>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: "",
+          counter: 0,
+          content: ""
+        }
+      },
+      watch: {
+        content(newValue) {
+          console.log(newValue)
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
