@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    th,
+    td {
+      border: 2px solid red;
+      padding: 5px 10px;
+      text-align: center;
+    }
+
+    .count {
+      padding: 5px;
+    }
+
+    .active {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <template v-if="books.length">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+            :class="{active: index === currentIndex}" 
+            v-for="(book, index) in books" 
+            :key="book.id" 
+            @click="didSelect(index)"
+          >
+            <td>{{index + 1}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.date}}</td>
+            <td>{{formatPrice(book.price)}}</td>
+            <td>
+              <button :disabled="book.count === 1" @click="decrement(index)">-</button>
+              <span class="count">{{book.count}}</span>
+              <button @click="increment(index)">+</button>
+            </td>
+            <td>
+              <button @click="deleteBook(index)">移除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>总价格：{{formatPrice(totalPrice)}}</h2>
+    </template>
+    <h2 v-else>购物车为空！</h2>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          books: [
+            { id: 110, name: "Flutter从入门到精通", date: "2020-2-23", price: 5, count: 1 },
+            { id: 111, name: "代码大全", date: "1984-2-23", price: 15, count: 1 },
+            { id: 112, name: "Swift使用指南", date: "2010-5-23", price: 20, count: 1 },
+            { id: 113, name: "Javascrip", date: "2004-2-23", price: 25, count: 1 },
+            { id: 114, name: "Java入门", date: "2002-2-23", price: 40, count: 1 },
+            { id: 115, name: "程序设计", date: "2022-2-23", price: 45, count: 1 },
+          ],
+          currentIndex: 0
+        }
+      },
+      computed: {
+        totalPrice() {
+          // let totalPrice = 0
+          // for (const book of this.books) {
+          //   totalPrice += book.count * book.price
+          // }
+
+          // return totalPrice
+
+          return this.books.reduce((preValue, item) => {
+            return preValue + item.price * item.count
+          }, 0)
+        }
+      },
+      methods: {
+        decrement(index) {
+          const book = this.books[index]
+          book.count--
+        },
+        increment(index) {
+          const book = this.books[index]
+          book.count++
+        },
+        deleteBook(index) {
+          this.books.splice(index, 1)
+        },
+        formatPrice(price) {
+          return "¥" + price
+        },
+        didSelect(index) {
+          this.currentIndex = index
+        }
+      }
+    })
+    app.mount("#app")
+  </script>
+</body>
+
+</html>
