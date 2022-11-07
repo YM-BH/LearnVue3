@@ -1,10 +1,13 @@
 <template>
-  <h2 class="title">{{ message }}</h2>
-  <home></home>
+  <app-header></app-header>
+  <app-content></app-content>
+  <app-footer></app-footer>
 </template>
 
 <script>
-import Home from './Home.vue'
+import AppHeader from './AppHeader.vue'
+import AppContent from './AppContent.vue'
+import AppFooter from './AppFooter.vue'
 export default {
   data() {
     return {
@@ -12,12 +15,14 @@ export default {
     }
   },
   components: {
-    Home
+    AppHeader,
+    AppContent,
+    AppFooter
   }
 }
 </script>
 
-<style>
+<style scoped>
 .title {
   color: red;
 }
