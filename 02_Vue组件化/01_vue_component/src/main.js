@@ -5,6 +5,8 @@ import { createApp } from 'vue'
 
 // import App from './03_组件通信小案例/App.vue'
 // import App from './04_具名插槽/App.vue'
-import App from './05_作用域插槽/App.vue'
+// import App from './05_作用域插槽/App.vue'
+
+import App from './06_事件总线/App.vue'
 
 createApp(App).mount('#app')
