@@ -10,6 +10,7 @@
     methods: {
       changeMessage() {
         eventBus.emit("changeMessage", "KiKi", 18)
+        eventBus.emit("delete")
       }
     }
   }
