@@ -7,6 +7,7 @@ import { createApp } from 'vue'
 // import App from './04_具名插槽/App.vue'
 // import App from './05_作用域插槽/App.vue'
 
-import App from './06_事件总线/App.vue'
+// import App from './06_事件总线/App.vue'
+import App from './07_生命周期函数/App.vue'
 
 createApp(App).mount('#app')
