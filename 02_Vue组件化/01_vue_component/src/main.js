@@ -12,6 +12,7 @@ import { createApp } from 'vue'
 
 // import App from './08_ref的使用/App.vue'
 
-import App from './09_动态组件/App.vue'
+// import App from './09_动态组件/App.vue'
+import App from './10_keep-alive的使用/App.vue'
 
 createApp(App).mount('#app')
