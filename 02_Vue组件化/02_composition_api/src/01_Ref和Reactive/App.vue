@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import useCounter from './hooks/useCounter'
+import useCounter from '../hooks/useCounter'
 import { reactive } from 'vue'
 export default {
   setup() {
