@@ -26,8 +26,7 @@
   onMounted(() => {
     showInfoRef.value.showInfo()
   })
-
-
+  
 </script>
 
 <style>

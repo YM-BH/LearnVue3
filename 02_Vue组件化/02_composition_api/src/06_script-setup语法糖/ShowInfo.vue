@@ -23,13 +23,13 @@
     emit("showMessage", "showMessageClick")
   }
 
-  function showInfo() {
-    console.log("showInfo")
-  }
-
   defineExpose({
     showInfo
   })
+
+  function showInfo() {
+    console.log("showInfo")
+  }
 
 </script>
 
