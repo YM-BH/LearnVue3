@@ -4,8 +4,8 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 // import About from '../views/About.vue'
 
 const router = createRouter({
-  // history: createWebHashHistory(),
-  history: createWebHistory(),
+  history: createWebHashHistory(),
+  // history: createWebHistory(),
   routes: [
     { 
       path: "/", 
@@ -18,6 +18,11 @@ const router = createRouter({
     { 
       path: "/about", 
       component: () => import('../views/About.vue') 
+    },
+    {
+      // 动态路由
+      path: "/user/:id",
+      component: () => import('../views/User.vue')
     }
   ]
 })
