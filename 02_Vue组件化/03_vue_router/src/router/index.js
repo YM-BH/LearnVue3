@@ -23,6 +23,11 @@ const router = createRouter({
       // 动态路由
       path: "/user/:id",
       component: () => import('../views/User.vue')
+    },
+    // NotFound
+    {
+      path: "/:pathMatch(.*)",
+      component: () => import("../views/NotFound.vue")
     }
   ]
 })
