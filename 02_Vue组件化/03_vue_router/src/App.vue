@@ -7,6 +7,7 @@
     <router-link to="/user/333">用户333</router-link>
     <button @click="go2Home">首页</button>
     <button @click="go2About">关于</button>
+    <router-link to="/order">订单</router-link>
     <router-view></router-view>
   </div>
 </template>
