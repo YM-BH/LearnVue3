@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2>About</h2>
+    <h2>About - {{ $route.query }}</h2>
     <button @click="backBtnClick">返回</button>
   </div>
 </template>

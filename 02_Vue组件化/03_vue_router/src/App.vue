@@ -20,7 +20,13 @@
   }
 
   function go2About() {
-    router.push("/about")
+    router.push({
+      path: "/about",
+      query: {
+        name: "abc",
+        age: 29
+      }
+    })
   }
 </script>
 
