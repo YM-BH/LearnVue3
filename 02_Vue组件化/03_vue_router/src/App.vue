@@ -5,12 +5,23 @@
     <router-link to="/about" replace>关于</router-link>
     <router-link to="/user/123">用户123</router-link>
     <router-link to="/user/333">用户333</router-link>
+    <button @click="go2Home">首页</button>
+    <button @click="go2About">关于</button>
     <router-view></router-view>
   </div>
 </template>
 
 <script setup>
+  import { useRouter } from 'vue-router'
 
+  const router = useRouter()
+  function go2Home() {
+    router.push("/home")
+  }
+
+  function go2About() {
+    router.push("/about")
+  }
 </script>
 
 <style scoped>
