@@ -3,7 +3,10 @@
     <h2>Home 当前计数：{{ $store.state.counter }}</h2>
     <button @click="increment">+1</button>
     <h2>name - {{ name }}</h2>
-    <button @click="changeName">修改name</button>
+    
+    <h2>totalAge: {{ $store.getters.totalAge }}</h2>
+    <h2>message: {{ $store.getters.message }}</h2>
+    <h2>findFriend: {{ $store.getters.findFriendById(111) }}</h2>
   </div>
 </template>
 
