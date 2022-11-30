@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h2>Home 当前计数：{{ $store.state.counter }}</h2>
-    <button @click="increment">+1</button>
+    <button @click="increment">+5</button>
     <h2>name - {{ name }}</h2>
     
     <h2>totalAge: {{ $store.getters.totalAge }}</h2>
@@ -16,7 +16,7 @@
 
   const store = useStore()
   function increment() {
-    store.commit("increment")
+    store.commit("increment", 5)
   }
 
   const { name } = toRefs(store.state)
