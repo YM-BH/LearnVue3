@@ -5,13 +5,13 @@
     <h2>name - {{ name }}</h2>
     
     <h2>totalAge: {{ $store.getters.totalAge }}</h2>
-    <h2>message: {{ $store.getters.message }}</h2>
+    <h2>message: {{ message }}</h2>
     <h2>findFriend: {{ $store.getters.findFriendById(111) }}</h2>
   </div>
 </template>
 
 <script setup>
-  import { toRefs } from 'vue'
+  import { computed, toRefs } from 'vue'
   import { useStore } from 'vuex'
 
   const store = useStore()
@@ -20,6 +20,8 @@
   }
 
   const { name } = toRefs(store.state)
+
+  const message = computed(() => store.getters.message)
 
 </script>
 
