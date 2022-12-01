@@ -13,10 +13,11 @@
 <script setup>
   import { computed, toRefs } from 'vue'
   import { useStore } from 'vuex'
+  import { INCREMENT } from './store/mutation_types'
 
   const store = useStore()
   function increment() {
-    store.commit("increment", 5)
+    store.commit(INCREMENT, 5)
   }
 
   const { name } = toRefs(store.state)

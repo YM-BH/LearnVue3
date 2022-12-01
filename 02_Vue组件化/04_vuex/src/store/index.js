@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 
+import { INCREMENT } from './mutation_types'
+
 const store = createStore({
   state: () => ({
     counter: 66,
@@ -29,7 +31,7 @@ const store = createStore({
     }
   },
   mutations: {
-    increment(state, payload) {
+    [INCREMENT](state, payload) {
       state.counter += payload
     }
   }
