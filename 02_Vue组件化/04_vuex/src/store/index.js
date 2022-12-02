@@ -2,6 +2,8 @@ import { createStore } from 'vuex'
 
 import { INCREMENT } from './mutation_types'
 
+import homeMoudles from './modules/home'
+
 const store = createStore({
   state: () => ({
     counter: 66,
@@ -10,9 +12,7 @@ const store = createStore({
       { id: 111, name: 'Lucy', age: 18 },
       { id: 112, name: 'Smile', age: 17},
       { id: 113, name: 'Andy', age: 34}
-    ],
-    banners: [],
-    recommends: []
+    ]
   }),
   getters: {
     // 普通用法
@@ -35,26 +35,15 @@ const store = createStore({
   mutations: {
     [INCREMENT](state, payload) {
       state.counter += payload
-    },
-    changeBanners(state, banners) {
-      state.banners = banners
-    },
-    changeRecommends(state, recommends) {
-      state.recommends = recommends
     }
   },
   actions: {
     incrementAction(contex, payload) {
       contex.commit(INCREMENT, payload)
-    },
-    async getTopData(contex) {
-      const res = await fetch('http://123.207.32.32:8000/home/multidata')
-
-      const data = await res.json()
-      // console.log(data.data)
-      contex.commit("changeBanners", data.data.banner.list)
-      contex.commit("changeRecommends", data.data.recommend.list)
     }
+  },
+  modules: {
+    home: homeMoudles
   }
 })
 

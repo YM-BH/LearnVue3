@@ -9,7 +9,7 @@
     <h2>message: {{ message }}</h2>
     <h2>findFriend: {{ $store.getters.findFriendById(111) }}</h2>
     <ul>
-      <template v-for="item in $store.state.banners" :key="item.acm">
+      <template v-for="item in $store.state.home.banners" :key="item.acm">
         <li>{{ item.title }}</li>
       </template>
     </ul>
