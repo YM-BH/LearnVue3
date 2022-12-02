@@ -1,14 +1,52 @@
 <template>
   <div class="home">
-    <h2>当前计数：{{ counter.count }}</h2>
+    <h2>当前计数：{{ counterStore.count }}</h2>
+    <hr>
+    <h2>name is {{ name }}, age is {{ age }}, level is {{ level }}</h2>
+    <button @click="changeState">修改state</button>
+    <button @click="resetState">重置state</button>
+    <button @click="patchState">批量修改state</button>
+    <button @click="replaceState">替换state</button>
   </div>
 </template>
 
 <script setup>
   import useCounter from '@/stores/counter';
+  import useUser from '@/stores/user';
+import { storeToRefs } from 'pinia';
 
-  const counter = useCounter()
+  const counterStore = useCounter()
 
+  const userStore = useUser()
+
+  const { name, age, level } = storeToRefs(userStore)
+
+  // 修改 state
+  function changeState() {
+    userStore.name = 'james'
+    userStore.age = 23
+    userStore.level = 66
+  }
+  // 重置 state
+  function resetState() {
+    userStore.$reset()
+  }
+
+  // 批量修改state
+  function patchState() {
+    userStore.$patch({
+      name: 'curry',
+      level: 99
+    })
+  }
+  // 替换 state
+  function replaceState() {
+    userStore.$state ={
+      name: 'Lilu',
+      age: 12,
+      level: 23
+    }
+  }
 </script>
 
 <style scoped>
