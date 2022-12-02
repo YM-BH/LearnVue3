@@ -7,6 +7,10 @@
     <button @click="resetState">重置state</button>
     <button @click="patchState">批量修改state</button>
     <button @click="replaceState">替换state</button>
+    <h2>doubleCounter: {{ counterStore.doubleCounter }}</h2>
+    <h2>doubleCounterAddOne: {{ counterStore.doubleCounterAddOne }}</h2>
+    <h2>getFriend111: {{ counterStore.getFriendById(111) }}</h2>
+    <h2>showInfo: {{ counterStore.showInfo }}</h2>
   </div>
 </template>
 
