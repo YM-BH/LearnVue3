@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h2>当前计数：{{ counterStore.count }}</h2>
+    <button @click="changeNum">修改count</button>
     <hr>
     <h2>name is {{ name }}, age is {{ age }}, level is {{ level }}</h2>
     <button @click="changeState">修改state</button>
@@ -11,15 +12,26 @@
     <h2>doubleCounterAddOne: {{ counterStore.doubleCounterAddOne }}</h2>
     <h2>getFriend111: {{ counterStore.getFriendById(111) }}</h2>
     <h2>showInfo: {{ counterStore.showInfo }}</h2>
+
+    <ul>
+      <template v-for="item in homeStore.banners"  :key="item.acm">
+        <li>{{ item.title }}</li>
+      </template>
+    </ul>
   </div>
 </template>
 
 <script setup>
   import useCounter from '@/stores/counter';
   import useUser from '@/stores/user';
-import { storeToRefs } from 'pinia';
+  import useHome from '@/stores/home'
+  import { storeToRefs } from 'pinia';
 
   const counterStore = useCounter()
+
+  function changeNum() {
+    counterStore.incrementNum(4)
+  }
 
   const userStore = useUser()
 
@@ -51,6 +63,9 @@ import { storeToRefs } from 'pinia';
       level: 23
     }
   }
+
+  const homeStore = useHome()
+  homeStore.getHomeData()
 </script>
 
 <style scoped>
