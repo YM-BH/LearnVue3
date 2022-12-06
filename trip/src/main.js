@@ -5,4 +5,7 @@ import App from './App.vue'
 import 'normalize.css'
 import './assets/css/index.css'
 
-createApp(App).mount('#app')
+import pinia from './stores'
+import router from './router'
+
+createApp(App).use(pinia).use(router).mount('#app')

@@ -1,12 +1,14 @@
-<script setup>
-
-</script>
 
 <template>
   <div class="app">
-    App Page
+    <tabbar></tabbar>
   </div>
 </template>
+
+<script setup>
+  import tabbar from './components/tabbar/tabbar.vue'
+
+</script>
 
 <style scoped>
 
