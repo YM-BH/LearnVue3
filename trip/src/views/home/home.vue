@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    home
+    <div class="nav-bar">
+      <span class="title">哈哈旅游</span>
+    </div>
 
   </div>
 </template>

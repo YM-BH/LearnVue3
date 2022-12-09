@@ -20,8 +20,13 @@ import { getAssetURL } from '../../utils/load_assets'
 
 const currentIndex = ref(0)
 
+
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+.tabbar {
+  :deep(.van-tabbar-item__icon) {
+    font-size: 50px;
+  }
+}
 </style>
