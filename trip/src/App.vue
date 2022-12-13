@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-  import tabbar from './components/tabbar/tabbar.vue'
 
 </script>
 

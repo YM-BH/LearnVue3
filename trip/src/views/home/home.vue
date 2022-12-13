@@ -1,15 +1,50 @@
 <template>
   <div class="home">
-    <div class="nav-bar">
-      <span class="title">哈哈旅游</span>
+    <nav-bar></nav-bar>
+    <div class="banner">
+      <img src="@/assets/images/home/banner.webp">
     </div>
-
+    <div class="location">
+      <div class="city">北京</div>
+      <div class="position">
+        <span>我的位置</span>
+        <img src="@/assets/images/home/icon_location.png">
+      </div>
+    </div>
   </div>
 </template>
+
 <script setup>
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+
+.home {
+  .banner {
+    img {
+      width: 100%;
+    }
+  }
+  .location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 44px;
+    .city {
+      flex: 1;
+    }
+    .position {
+      display: flex;
+      align-items: center;
+      img {
+        width: 18px;
+        height: 18px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
 
 </style>
