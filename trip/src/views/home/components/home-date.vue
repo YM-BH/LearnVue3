@@ -3,11 +3,13 @@
     <div class="enter" @click="enterClick">
       <span class="enter-content">入住</span>
       <div class="enter-date">{{ formatDate(enterDate) }}</div>
+      <span class="price">价格不限</span>
     </div>
     <div class="total">共{{ total }}晚</div>
     <div class="leave" @click="leaveClick">
       <span class="leave-content">离开</span>
       <div class="leave-date">{{ formatDate(leaveDate) }}</div>
+      <span class="count">人数不限</span>
     </div>
     <van-calendar v-model:show="isShow" @confirm="onConfirm" type="range"/>
   </div>
@@ -54,8 +56,14 @@ function onConfirm(dates) {
     padding: 0 10px;
 
     .enter {
+      display: flex;
+      flex-direction: column;
       width: 30%;
       .enter-content {
+        color: gray;
+      }
+      .price {
+        margin-top: 20px;
         color: gray;
       }
     }
@@ -63,8 +71,15 @@ function onConfirm(dates) {
       flex: 1;
     }
     .leave {
+      display: flex;
+      flex-direction: column;
       width: 30%;
       .leave-content {
+        color: gray;
+      }
+
+      .count {
+        margin-top: 20px;
         color: gray;
       }
     }
