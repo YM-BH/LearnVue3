@@ -6,17 +6,34 @@
         <div class="item">{{ item.tagText.text }}</div>
       </template>
     </div>
-    <div class="begin-search">开始搜索</div>
+    <div class="begin-search" @click="searchClick">开始搜索</div>
   </div>
 </template>
 
 <script setup>
 import useHomeStore from '@/stores/modules/home';
+import useCityStore from '@/stores/modules/city';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+
 
 const homeStore = useHomeStore()
+const cityStore = useCityStore()
 
 const { hotSuggests } = storeToRefs(homeStore);
+
+const router = useRouter()
+
+function searchClick() {
+  router.push({
+    path: '/search',
+    query: {
+      currentCity: cityStore.currentCity.cityName,
+      enterDate: homeStore.enterDate,
+      leaveDate: homeStore.leaveDate
+    }
+  })
+}
 
 </script>
 

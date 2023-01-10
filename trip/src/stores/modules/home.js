@@ -4,6 +4,8 @@ import { getHotSuggests } from '@/service/modules/home'
 
 const useHomeStore = defineStore('home', {
   state: () => ({
+    enterDate: '',
+    leaveDate: '',
     hotSuggests: []
   }),
   actions: {

@@ -19,6 +19,7 @@
 import { ref } from 'vue';
 import { formatDate } from '@/utils/date-format'
 import dayjs from 'dayjs'
+import useHomeStore from '@/stores/modules/home';
 
 // 是否展示日历
 const isShow = ref(false)
@@ -38,6 +39,8 @@ function leaveClick() {
   isShow.value = true
 }
 
+const homeStore = useHomeStore()
+
 function onConfirm(dates) {
   isShow.value = false
   enterDate.value = dates[0]
@@ -45,7 +48,14 @@ function onConfirm(dates) {
 
   // 计算相差的天数
   total.value = dayjs(leaveDate.value).diff(enterDate.value, 'day')
+
+  homeStore.enterDate = formatDate(enterDate.value)
+  homeStore.leaveDate = formatDate(leaveDate.value)
+
 }
+
+homeStore.enterDate = formatDate(enterDate.value)
+homeStore.leaveDate = formatDate(leaveDate.value)
 
 </script>
 
